@@ -5,6 +5,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { NavLink as Link } from 'react-router-dom';
 import Home from './components/Home'
 import Contact from './components/Contact'
+import SpeechRate from './pages/SpeechRate'
+import About from './pages/About'
+import Studies from './pages/Studies'
+
 
 function App() {
   return (
@@ -22,7 +26,7 @@ function App() {
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
-                              <a href="index.html"><img src={require("./assets/images/logo.png")} alt="#" /></a>
+                              <a href="index.html"><img src={require("./assets/images/logo.svg")} alt="#" /></a>
                            </div>
                         </div>
                      </div>
@@ -41,7 +45,7 @@ function App() {
                               </li>
                               <li class="nav-item">
                               <Link to='/rate' class="nav-link">
-                                Speech rate
+                                Speech tempo
                               </Link>  
                               </li>
                               <li class="nav-item">
@@ -50,13 +54,11 @@ function App() {
                               </Link>
                               </li>
                               <li class="nav-item">                                
-                              <Link class="nav-link" to='/contact' activeStyle >
-                                Contact Us
+                              <Link class="nav-link" to='/about' activeStyle >
+                                About Us
                               </Link>
                               </li>
-                              <li class="nav-item d_none">
-                                 <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-                              </li>
+                             
                            </ul>
                         </div>
                      </nav>
@@ -70,9 +72,9 @@ function App() {
         
       <Switch>
         <Route path='/home' exact component={Home} />   
-        <Route path='/rate' exact component={Home} />   
-        <Route path='/studies' exact component={Home} />   
-        <Route path='/contact' exact component={Contact} />   
+        <Route path='/rate' exact component={SpeechRate} />   
+        <Route path='/studies' exact component={Studies} />   
+        <Route path='/about' exact component={About} />   
       </Switch>
 
       </section>

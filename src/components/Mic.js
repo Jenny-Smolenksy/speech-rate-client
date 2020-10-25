@@ -34,15 +34,17 @@ export class Mic extends Component {
             onStop={this.onStop}
             onData={this.onData}
             strokeColor="#2453D5"
-            backgroundColor="#DADCE1" />
+            backgroundColor="#DADCE1"
+             />
           <button  class="btn-custom" onClick={this.startRecording} type="button">
-          <img src={require("./../assets/images/microphone-solid.svg")}  alt="#" />
+         
           Start
+          <i class='fas fa-microphone' />
           </button>
         <button class="btn-custom" onClick={this.stopRecording} type="button">
-        <img src={require("./../assets/images/stop-circle-regular.svg")}  alt="#" />
         
-          Stop</button>
+          Stop <i class='fas fa-stop-circle' ></i>
+          </button>
           
         </div>
       );
