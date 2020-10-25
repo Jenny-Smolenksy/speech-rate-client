@@ -50,9 +50,6 @@ class Home extends Component {
     return (
       <div id="banner1" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#banner1" data-slide-to="0" class="active"></li>
-          <li data-target="#banner1" data-slide-to="1"></li>
-          <li data-target="#banner1" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -117,6 +114,12 @@ class Home extends Component {
                           alt="#"
                         />
                       </figure>
+                      <label>Measured speech rate: {"  "}
+                         <label className="p1" >10 SPS</label> 
+                         <br/>
+                      Average speech rate measured: {"  "}
+                       <label className="p2" >15 SPS</label> 
+                      </label>
                     </div>
                   </div>
                 </div>

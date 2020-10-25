@@ -28,9 +28,8 @@ function App() {
                         <div class="logo">
                           <a href="index.html">
                             <img
-                              src={require("./assets/images/logo1.JPG")}
-                              
-                              style={({height:"80px"}, {width:"80px"})}
+                              src={require("./assets/images/logo.jpg")}                             
+                             
                               alt="#"
                             />
                           </a>

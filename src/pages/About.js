@@ -9,13 +9,13 @@ export default function About() {
                  <div class="titlepage">
                      <h2>Hey! We are Almog and Jenny</h2>
                      <p>
-                     We are B.C.s students in Bar Ilan University at Computer Science faculty. <br/> <br/>
-                     This app is part of our graduation project. <br/>
-                     In the project we trained Neural Network to identify vowels in Enlish speech. <br/>
-                     For the training we used over 500 hours of speech, from libri-speech free data base. <br/><br/>
+                     B.Sc students in Bar Ilan University at Computer Science faculty. <br/> <br/>
+                     This app is a part of our graduation project. <br/>
+                     In the project we trained a Neural Network to identify vowels in English speech. <br/>
+                     For the training we used over 500 hours of speech, from libri-speech free database. <br/><br/>
                      The algorithm tries to predict how many vowels there are in an audio file. <br/>
-                     and therefore predicts syllables per seconds for English speech in given audio file. <br/>
-                     using this app you can uplaod existing file or record new one and check SPS.
+                     And therefore predicts syllables per seconds for English speech in a given audio file. <br/>
+                     Using this app you can upload an existing file or record a new one and check SPS.
                                           </p>
                     
                     </div>

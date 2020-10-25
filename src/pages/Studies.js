@@ -11,8 +11,8 @@ export default function Studies() {
                  <div class="titlepage">
                      <h2>Speech rate impacts</h2>
                      <p>
-                     speech rate meassure has many impacts in different field.<br/> 
-                     here are a few examples:
+                     Speech rate measurement has many impacts in different fields.<br/> 
+                     Here are a few examples:
                       </p>
                     
                     </div>

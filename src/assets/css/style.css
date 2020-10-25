@@ -1110,35 +1110,6 @@ ul.social_icon li a:hover {
 /** end about **/
 
 
-/** laptop **/
-
-.laptop1 {
-     background-color: #f6f6f6;
-     padding: 90px 0;
-}
-
-.laptop1 .titlepage {
-     text-align: right;
-}
-
-.laptop1 .titlepage h2 {
-     max-width: inherit;
-     border: inherit;
-     color: #000;
-}
-
-.laptop1 .titlepage p {
-     padding: 30px 0;
-     color: #000;
-}
-
-.laptop1_img figure {
-     margin: 0;
-}
-
-.laptop1_img figure img {
-     width: 100%;
-}
 
 .min div {
      padding-bottom: 10px;
@@ -1146,4 +1117,32 @@ ul.social_icon li a:hover {
      padding-top: 20px;
 }
 
-/** end laptop **/
+
+.logo img{    
+     /* object-fit: cover;
+     height: 80px;
+     width: 100px;
+     background-color: #25B7EC;
+     border: 2px solid #73AD21; */
+     border-radius: 40px 20px;
+     height: 70px;
+     width: 90px;
+}
+
+.text_img label{
+     text-align: left;
+     font-size: 22px;
+     color: #929DA1;
+}
+
+.text_img label.p1{
+     font-weight: bold;         
+     padding-top: 30px; 
+     color: #25B7EC;
+     text-decoration: underline;
+}
+
+.text_img label.p2{  
+     padding-bottom: 40px;
+     color: #25B7EC;
+}
