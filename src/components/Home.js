@@ -1,7 +1,6 @@
-import { render } from "@testing-library/react";
+//import { render } from "@testing-library/react";
 import React, { Component } from "react";
-import Mic from './Mic';
-
+import Mic from "./Mic";
 
 class Home extends Component {
   constructor(props) {
@@ -47,26 +46,33 @@ class Home extends Component {
                 <div class="row">
                   <div class="col-md-8">
                     <div class="text-bg">
-                    <h2>How fast can you talk?</h2>
-                     <h1>Check speech rate</h1>
+                      <h2>How fast can you talk?</h2>
+                      <h1>Check speech rate</h1>
                       <h2>
                         {" "}
                         Meassure speech rate by uploading sound file <br /> or
                         record your own speech
-                      </h2>                     
-                      <label>                         
-                         <a>
-                         Record   {"  "}{"  "}
-                           <i class="fas fa-record-vinyl" style={{fontSize:"24px"}, {color: "#16ABF6"}}></i>
-                           
-                           <br />
-                         </a>
-                       </label>
-
-                      <label>                         
+                      </h2>
+                      <label>
                         <a>
-                          Upload file  {"  "}{"  "}
-                          <i class="fas fa-upload" style={{fontSize:"24px"}, {color: "#16ABF6"}}></i>
+                          Record {"  "}
+                          {"  "}
+                          <i
+                            class="fas fa-record-vinyl"
+                            style={({ fontSize: "24px" }, { color: "#16ABF6" })}
+                          ></i>
+                          <br />
+                        </a>
+                      </label>
+
+                      <label>
+                        <a>
+                          Upload file {"  "}
+                          {"  "}
+                          <i
+                            class="fas fa-upload"
+                            style={({ fontSize: "24px" }, { color: "#16ABF6" })}
+                          ></i>
                           <input
                             ref={(ref) => {
                               this.uploadInput = ref;
@@ -94,7 +100,7 @@ class Home extends Component {
               </div>
             </div>
           </div>
-          
+
           {/* <div class="carousel-item">
             <div class="container">
               <div class="carousel-caption">
@@ -125,7 +131,6 @@ class Home extends Component {
          <div class="carousel-item">
           
          </div> */}
-       
         </div>
         <a
           class="carousel-control-prev"
