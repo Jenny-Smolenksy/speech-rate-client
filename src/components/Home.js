@@ -8,9 +8,17 @@ class Home extends Component {
 
     this.state = {
       imageURL: "",
+      recClicked: false,
     };
 
     this.handleUploadImage = this.handleUploadImage.bind(this);
+    this.onRecordClick = this.onRecordClick.bind(this);
+  }
+
+  onRecordClick() {
+    this.setState((prevState) => ({
+      recClicked: !prevState.recClicked,
+    }));
   }
 
   handleUploadImage(ev) {
@@ -54,7 +62,7 @@ class Home extends Component {
                         record your own speech
                       </h2>
                       <label>
-                        <a>
+                        <a onClick={this.onRecordClick}>
                           Record {"  "}
                           {"  "}
                           <i
@@ -85,7 +93,9 @@ class Home extends Component {
                         </a>
                       </label>
                     </div>
+                    <div> {this.state.recClicked ? <Mic /> : null}</div>
                   </div>
+
                   <div class="col-md-4">
                     <div class="text_img">
                       <figure>
