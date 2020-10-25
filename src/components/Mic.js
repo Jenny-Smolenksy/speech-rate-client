@@ -1,38 +1,48 @@
 import { ReactMic } from "react-mic";
 import React, { Component } from "react";
+import AudioPlayer from "react-h5-audio-player";
 
 export class Mic extends Component {
   constructor(props) {
     super(props);
     this.state = {
       record: false,
+      isRecordDone: false,
+      recUrl: "",
+      audio: "",
+      recBlob: "",
     };
   }
 
   startRecording = () => {
     this.setState({ record: true });
+    this.setState({ isRecordDone: false });
   };
 
   stopRecording = () => {
     this.setState({ record: false });
+    this.setState({ isRecordDone: true });
+  };
+
+  onPlay = () => {
+    const tmp = new Audio(this.state.recUrl);
+    tmp.play();
   };
 
   onData(recordedBlob) {
     console.log("chunk of real-time data is: ", recordedBlob);
   }
 
-  onStop(recordedBlob) {
+  onStop = (recordedBlob) => {
     console.log("recordedBlob is: ", recordedBlob);
+    const url = URL.createObjectURL(recordedBlob.blob);
+    this.setState({ recUrl: url });
+    this.setState({ recBlob: recordedBlob.blob });
+  };
 
-    //var ft = new File([recordedBlob], "test_wav.wav", { type: "audio/wav" });
-    //var ft = new Blob(recordedBlob, { type: "audio/wav; codecs=0" });
-
-    // const data = new FormData();
-    // data.append("file", ft);
-    // data.append("filename", "fileTESTUP");
-
+  onUpload = () => {
     var form = new FormData();
-    form.append("file", recordedBlob.blob, "test_rec.wav");
+    form.append("file", this.state.recBlob, "test_record_blob.wav");
     form.append("title", "title_test");
 
     fetch("http://localhost:8000/upload", {
@@ -43,7 +53,7 @@ export class Mic extends Component {
       //   this.setState({ imageURL: `http://localhost:8000/${body.file}` });
       response.json().then((data) => console.log(data));
     });
-  }
+  };
 
   render() {
     return (
@@ -61,10 +71,8 @@ export class Mic extends Component {
         </div>
 
         <div style={{ textAlign: "left" }}>
-
-               
-            {/* pause */}
-            <label className="rec-btn">
+          {/* pause */}
+          <label className="rec-btn">
             <a>
               {"  "}
               {"  "}
@@ -74,7 +82,7 @@ export class Mic extends Component {
             </a>
           </label>
 
-        {/* stop */}
+          {/* stop */}
           <label className="rec-btn">
             <a>
               {"  "}
@@ -85,8 +93,8 @@ export class Mic extends Component {
             </a>
           </label>
 
-           {/* record */}
-           <label className="rec-btn">
+          {/* record */}
+          <label className="rec-btn">
             <a>
               {"  "}
               {"  "}
@@ -101,26 +109,37 @@ export class Mic extends Component {
             <a>
               {"  "}
               {"  "}
-              <i class="far fa-play-circle" onClick={this.stopRecording}></i>
+              <i class="far fa-play-circle" onClick={this.onPlay}></i>
 
               <br />
             </a>
           </label>
 
-    
           {/* upload */}
           <label className="rec-btn">
             <a>
               {"  "}
               {"  "}
-              <i class="fas fa-upload" onClick={this.stopRecording}></i>
+              <i class="fas fa-upload" onClick={this.onUpload}></i>
 
               <br />
             </a>
           </label>
-
-
         </div>
+
+        {this.state.isRecordDone ? (
+          <div>
+            {" "}
+            <AudioPlayer
+              autoPlay="false"
+              src={this.state.recUrl}
+              onPlay={(e) => console.log("onPlay")}
+              // other props here
+              strokeColor="#D3D5D8"
+              backgroundColor="#17325B"
+            />
+          </div>
+        ) : null}
       </div>
     );
   }
