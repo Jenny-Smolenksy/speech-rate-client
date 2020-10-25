@@ -68,6 +68,7 @@
     .box_text p {
         font-size: 15px;
         line-height: 23px;
+        display: inline-block;
     }
     .laptop .titlepage p {
         font-size: 30px;
@@ -106,6 +107,7 @@
     }
     .box_text {
         margin-bottom: 30px;
+        display: inline-block;
     }
     .bottom_form h3,
     .footer h3 {
