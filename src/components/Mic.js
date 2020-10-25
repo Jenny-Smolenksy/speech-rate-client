@@ -60,8 +60,33 @@ export class Mic extends Component {
           />
         </div>
 
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "left" }}>
+
+               
+            {/* pause */}
+            <label className="rec-btn">
+            <a>
+              {"  "}
+              {"  "}
+              <i class="far fa-pause-circle" onClick={this.stopRecording}></i>
+
+              <br />
+            </a>
+          </label>
+
+        {/* stop */}
           <label className="rec-btn">
+            <a>
+              {"  "}
+              {"  "}
+              <i class="far fa-stop-circle" onClick={this.stopRecording}></i>
+
+              <br />
+            </a>
+          </label>
+
+           {/* record */}
+           <label className="rec-btn">
             <a>
               {"  "}
               {"  "}
@@ -71,15 +96,30 @@ export class Mic extends Component {
             </a>
           </label>
 
-          <label className="stop-btn">
+          {/* play */}
+          <label className="rec-btn">
             <a>
               {"  "}
               {"  "}
-              <i class="far fa-stop-circle" onClick={this.stopRecording}></i>
+              <i class="far fa-play-circle" onClick={this.stopRecording}></i>
 
               <br />
             </a>
           </label>
+
+    
+          {/* upload */}
+          <label className="rec-btn">
+            <a>
+              {"  "}
+              {"  "}
+              <i class="fas fa-upload" onClick={this.stopRecording}></i>
+
+              <br />
+            </a>
+          </label>
+
+
         </div>
       </div>
     );
