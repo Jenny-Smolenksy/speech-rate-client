@@ -4,7 +4,6 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { NavLink as Link } from 'react-router-dom';
 import Home from './components/Home'
-import Contact from './components/Contact'
 import SpeechRate from './pages/SpeechRate'
 import About from './pages/About'
 import Studies from './pages/Studies'
