@@ -11,6 +11,8 @@ export class Mic extends Component {
       recUrl: "",
       audio: "",
       recBlob: "",
+      isDataResponse: false,
+      dataRes: "",
     };
   }
 
@@ -51,7 +53,13 @@ export class Mic extends Component {
     }).then((response) => {
       // response.json().then((body) => {
       //   this.setState({ imageURL: `http://localhost:8000/${body.file}` });
-      response.json().then((data) => console.log(data));
+      // response.json().then((data) => console.log(data));
+      response.json().then((data) => {
+        // this.setState({ dataRes: data });
+        // this.setState({ isDataResponse: true });
+        this.props.isResponse(data);
+        console.log(data);
+      });
     });
   };
 
@@ -69,7 +77,6 @@ export class Mic extends Component {
             mimeType="audio/wav"
           />
         </div>
-
         <div style={{ textAlign: "left" }}>
           {/* pause */}
           <label className="rec-btn">
@@ -126,8 +133,7 @@ export class Mic extends Component {
             </a>
           </label>
         </div>
-
-        {this.state.isRecordDone ? (
+        {/* {this.state.isRecordDone ? (
           <div>
             {" "}
             <AudioPlayer
@@ -139,7 +145,7 @@ export class Mic extends Component {
               backgroundColor="#17325B"
             />
           </div>
-        ) : null}
+        ) : null} */}
       </div>
     );
   }

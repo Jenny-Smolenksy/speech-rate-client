@@ -9,11 +9,18 @@ class Home extends Component {
     this.state = {
       imageURL: "",
       recClicked: false,
+      isDataResponse: false,
+      dataResponse: "",
     };
 
     this.handleUploadImage = this.handleUploadImage.bind(this);
     this.onRecordClick = this.onRecordClick.bind(this);
     this.onUploadClick = this.onUploadClick.bind(this);
+  }
+
+  onGetDataFromServer(data) {
+    this.setState({ isDataResponse: true });
+    this.setState({ dataResponse: data });
   }
 
   onRecordClick() {
@@ -43,14 +50,13 @@ class Home extends Component {
     }).then((response) => {
       // response.json().then((body) => {
       //   this.setState({ imageURL: `http://localhost:8000/${body.file}` });
-      response.json().then((data) => console.log(data));
+      response.json().then((data) => this.onGetDataFromServer(data));
     });
   }
   render() {
     return (
       <div id="banner1" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-        </ol>
+        <ol class="carousel-indicators"></ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="container">
@@ -102,7 +108,7 @@ class Home extends Component {
                         display: this.state.recClicked ? "block" : "none",
                       }}
                     >
-                      <Mic />{" "}
+                      <Mic isResponse={this.onGetDataFromServer.bind(this)} />{" "}
                     </label>
                   </div>
 
@@ -114,12 +120,25 @@ class Home extends Component {
                           alt="#"
                         />
                       </figure>
-                      <label>Measured speech rate: {"  "}
-                         <label className="p1" >10 SPS</label> 
-                         <br/>
-                      Average speech rate measured: {"  "}
-                       <label className="p2" >15 SPS</label> 
-                      </label>
+                      {this.state.isDataResponse ? (
+                        <label>
+                          Measured speech rate: {"  "}
+                          <label className="p1">
+                            {this.state.dataResponse}
+                          </label>
+                          <br />
+                          Average speech rate measured: {"  "}
+                          <label className="p2">15 SPS</label>
+                        </label>
+                      ) : null}
+                      {/* 
+                      <label>
+                        Measured speech rate: {"  "}
+                        <label className="p1">10 SPS</label>
+                        <br />
+                        Average speech rate measured: {"  "}
+                        <label className="p2">15 SPS</label>
+                      </label> */}
                     </div>
                   </div>
                 </div>
