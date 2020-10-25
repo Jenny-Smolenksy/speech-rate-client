@@ -405,6 +405,9 @@ summary {
 
 canvas {
   display: inline-block;
+  padding-top: 0.5rem;
+  height: 80px;
+  text-align: center;
 }
 
 /**
