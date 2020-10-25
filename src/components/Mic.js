@@ -47,74 +47,41 @@ export class Mic extends Component {
 
   render() {
     return (
-      <div style={({ textAlign: "left"})}>
-
-        <div className="wave" >
-          
-        <ReactMic
-          record={this.state.record}
-          className="sound-wave"
-          onStop={this.onStop}
-          onData={this.onData}
-          strokeColor="#D3D5D8"
-          backgroundColor="#17325B"
-          mimeType= "audio/wav"
-        />
+      <div style={{ textAlign: "left" }}>
+        <div className="wave">
+          <ReactMic
+            record={this.state.record}
+            className="sound-wave"
+            onStop={this.onStop}
+            onData={this.onData}
+            strokeColor="#D3D5D8"
+            backgroundColor="#17325B"
+            mimeType="audio/wav"
+          />
         </div>
 
-
-<div style={({ textAlign: "center"})}>
-        <label className="rec-btn">
+        <div style={{ textAlign: "center" }}>
+          <label className="rec-btn">
             <a>
-               {"  "}
               {"  "}
-              <i
-                class="fas fa-microphone"
-              ></i>
-              <input
-                ref={(ref) => {
-                  this.uploadInput = ref;
-                }}
-                type="file"
-                style={{ display: "none" }}
-                onChange={this.handleUploadImage}
-              />
+              {"  "}
+              <i class="fas fa-microphone" onClick={this.startRecording}></i>
+
               <br />
             </a>
           </label>
-                
-          
+
           <label className="stop-btn">
             <a>
-               {"  "}
               {"  "}
-              <i
-                class="far fa-stop-circle"
-              ></i>
-              <input
-                ref={(ref) => {
-                  this.uploadInput = ref;
-                }}
-                type="file"
-                style={{ display: "none" }}
-                onChange={this.handleUploadImage}
-              />
+              {"  "}
+              <i class="far fa-stop-circle" onClick={this.stopRecording}></i>
+
               <br />
             </a>
           </label>
-    
-          </div>
-
-
-        {/* <button onClick={this.startRecording} type="button">
-          Start
-        </button>
-        <button onClick={this.stopRecording} type="button">
-          Stop
-        </button> */}
-
-
         </div>
+      </div>
     );
   }
 }

@@ -13,11 +13,18 @@ class Home extends Component {
 
     this.handleUploadImage = this.handleUploadImage.bind(this);
     this.onRecordClick = this.onRecordClick.bind(this);
+    this.onUploadClick = this.onUploadClick.bind(this);
   }
 
   onRecordClick() {
     this.setState((prevState) => ({
       recClicked: !prevState.recClicked,
+    }));
+  }
+
+  onUploadClick() {
+    this.setState((prevState) => ({
+      recClicked: false,
     }));
   }
 
@@ -34,9 +41,9 @@ class Home extends Component {
       method: "POST",
       body: data,
     }).then((response) => {
-      response.json().then((body) => {
-        this.setState({ imageURL: `http://localhost:8000/${body.file}` });
-      });
+      // response.json().then((body) => {
+      //   this.setState({ imageURL: `http://localhost:8000/${body.file}` });
+      response.json().then((data) => console.log(data));
     });
   }
   render() {
@@ -73,7 +80,7 @@ class Home extends Component {
                         </a>
                       </label>
 
-                      <label>
+                      <label onClick={this.onUploadClick}>
                         <a>
                           Upload file {"  "}
                           {"  "}
@@ -93,7 +100,13 @@ class Home extends Component {
                         </a>
                       </label>
                     </div>
-                    <div> {this.state.recClicked ? <Mic /> : null}</div>
+                    <label
+                      style={{
+                        display: this.state.recClicked ? "block" : "none",
+                      }}
+                    >
+                      <Mic />{" "}
+                    </label>
                   </div>
 
                   <div class="col-md-4">
