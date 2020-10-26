@@ -26,13 +26,14 @@ function App() {
                     <div class="full">
                       <div class="center-desk">
                         <div class="logo">
-                          <a href="index.html">
-                            <img
+                        <Link to="/home" class="nav-link">
+                        <img
                               src={require("./assets/images/logo.jpg")}                             
                              
                               alt="#"
                             />
-                          </a>
+                            </Link>                         
+                            
                         </div>
                       </div>
                     </div>
@@ -86,6 +87,7 @@ function App() {
 
           <section class="banner_main">
             <Switch>
+            <Route path="/" exact component={Home} />
               <Route path="/home" exact component={Home} />
               <Route path="/rate" exact component={SpeechRate} />
               <Route path="/studies" exact component={Studies} />
