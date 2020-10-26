@@ -48,23 +48,38 @@ export class Mic extends Component {
     form.append("title", "title_test");
 
     // alert("Upload Started!");
-    //change to uploading
-    this.props.isOnUpload();
 
-    fetch("http://localhost:8000/upload", {
-      method: "POST",
-      body: form,
-    }).then((response) => {
-      // response.json().then((body) => {
-      //   this.setState({ imageURL: `http://localhost:8000/${body.file}` });
-      // response.json().then((data) => console.log(data));
-      response.json().then((data) => {
-        // this.setState({ dataRes: data });
-        // this.setState({ isDataResponse: true });
-        this.props.isResponse(data);
-        console.log(data);
+    const isReachable = async () => {
+      const timeout = new Promise((resolve, reject) => {
+        setTimeout(reject, 5000, "Request timed out");
       });
-    });
+      const request = fetch("http://localhost:8000");
+      try {
+        const response = await Promise.race([timeout, request]);
+        //change to uploading
+        this.props.isOnUpload();
+        fetch("http://localhost:8000/upload", {
+          method: "POST",
+          body: form,
+        }).then((response) => {
+          // response.json().then((body) => {
+          //   this.setState({ imageURL: `http://localhost:8000/${body.file}` });
+          // response.json().then((data) => console.log(data));
+          response.json().then((data) => {
+            // this.setState({ dataRes: data });
+            // this.setState({ isDataResponse: true });
+            this.props.isResponse(data);
+            console.log(data);
+          });
+        });
+        // return alert("connection succeded!");
+      } catch (error) {
+        // this.setState({ isServerUp: false });
+        return alert("Server is unavailable! please try again later..");
+      }
+    };
+
+    isReachable();
   };
 
   render() {

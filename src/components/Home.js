@@ -12,6 +12,7 @@ class Home extends Component {
       isDataResponse: false,
       dataResponse: "",
       isTryToUpload: false,
+      isServerUp: false,
     };
 
     this.handleUploadImage = this.handleUploadImage.bind(this);
@@ -43,25 +44,40 @@ class Home extends Component {
   }
 
   handleUploadImage(ev) {
-    ev.preventDefault();
+    const isReachable = async () => {
+      const timeout = new Promise((resolve, reject) => {
+        setTimeout(reject, 500, "Request timed out");
+      });
+      const request = fetch("http://localhost:8000");
+      try {
+        const response = await Promise.race([timeout, request]);
+        // return alert("connection succeded!");
+        ev.preventDefault();
 
-    const data = new FormData();
-    data.append("file", this.uploadInput.files[0]);
-    data.append("filename", "fileTESTUP");
+        const data = new FormData();
+        data.append("file", this.uploadInput.files[0]);
+        data.append("filename", "fileTESTUP");
 
-    // alert("Upload Started!");
-    this.onTryToUpload();
+        // alert("Upload Started!");
+        this.onTryToUpload();
 
-    // data.append("filename", this.fileName.value);
+        // data.append("filename", this.fileName.value);
 
-    fetch("http://localhost:8000/upload", {
-      method: "POST",
-      body: data,
-    }).then((response) => {
-      // response.json().then((body) => {
-      //   this.setState({ imageURL: `http://localhost:8000/${body.file}` });
-      response.json().then((data) => this.onGetDataFromServer(data));
-    });
+        fetch("http://localhost:8000/upload", {
+          method: "POST",
+          body: data,
+        }).then((response) => {
+          // response.json().then((body) => {
+          //   this.setState({ imageURL: `http://localhost:8000/${body.file}` });
+          response.json().then((data) => this.onGetDataFromServer(data));
+        });
+      } catch (error) {
+        this.setState({ isServerUp: false });
+        return alert("Server is unavailable! please try again later..");
+      }
+    };
+
+    isReachable();
   }
   render() {
     return (
@@ -112,13 +128,14 @@ class Home extends Component {
                         </a>
                       </label>
                       <label className="glow">
-                      {this.state.isTryToUpload ? "Uploading..." : null}
-                      {this.state.isTryToUpload ? 
-              <img src={require("./../assets/images/loading1.gif")} 
-              className="loader_upload"
-              alt="#" />
-            : null}
-                     
+                        {this.state.isTryToUpload ? "Uploading..." : null}
+                        {this.state.isTryToUpload ? (
+                          <img
+                            src={require("./../assets/images/loading1.gif")}
+                            className="loader_upload"
+                            alt="#"
+                          />
+                        ) : null}
                       </label>
                     </div>
                     <label
