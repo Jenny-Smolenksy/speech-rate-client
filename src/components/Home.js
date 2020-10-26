@@ -111,7 +111,15 @@ class Home extends Component {
                           <br />
                         </a>
                       </label>
+                      <label className="glow">
                       {this.state.isTryToUpload ? "Uploading..." : null}
+                      {this.state.isTryToUpload ? 
+              <img src={require("./../assets/images/loading1.gif")} 
+              className="loader_upload"
+              alt="#" />
+            : null}
+                     
+                      </label>
                     </div>
                     <label
                       style={{

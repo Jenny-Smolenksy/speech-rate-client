@@ -1162,4 +1162,7 @@ ul.social_icon li a:hover {
      animation: glow 1s ease-in-out infinite alternate;
    }
    
-  
+  .loader_upload{
+       height: 30px;
+       width: 30px;
+  }
