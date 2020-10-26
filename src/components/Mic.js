@@ -47,6 +47,10 @@ export class Mic extends Component {
     form.append("file", this.state.recBlob, "test_record_blob.wav");
     form.append("title", "title_test");
 
+    // alert("Upload Started!");
+    //change to uploading
+    this.props.isOnUpload();
+
     fetch("http://localhost:8000/upload", {
       method: "POST",
       body: form,

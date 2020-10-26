@@ -11,6 +11,7 @@ class Home extends Component {
       recClicked: false,
       isDataResponse: false,
       dataResponse: "",
+      isTryToUpload: false,
     };
 
     this.handleUploadImage = this.handleUploadImage.bind(this);
@@ -18,9 +19,15 @@ class Home extends Component {
     this.onUploadClick = this.onUploadClick.bind(this);
   }
 
+  onTryToUpload() {
+    this.setState({ isTryToUpload: true });
+  }
+
   onGetDataFromServer(data) {
     this.setState({ isDataResponse: true });
     this.setState({ dataResponse: data });
+    //done upload -> no need the "uploading...
+    this.setState({ isTryToUpload: false });
   }
 
   onRecordClick() {
@@ -41,6 +48,9 @@ class Home extends Component {
     const data = new FormData();
     data.append("file", this.uploadInput.files[0]);
     data.append("filename", "fileTESTUP");
+
+    // alert("Upload Started!");
+    this.onTryToUpload();
 
     // data.append("filename", this.fileName.value);
 
@@ -82,7 +92,6 @@ class Home extends Component {
                           <br />
                         </a>
                       </label>
-
                       <label onClick={this.onUploadClick}>
                         <a>
                           Upload file {"  "}
@@ -102,13 +111,17 @@ class Home extends Component {
                           <br />
                         </a>
                       </label>
+                      {this.state.isTryToUpload ? "Uploading..." : null}
                     </div>
                     <label
                       style={{
                         display: this.state.recClicked ? "block" : "none",
                       }}
                     >
-                      <Mic isResponse={this.onGetDataFromServer.bind(this)} />{" "}
+                      <Mic
+                        isResponse={this.onGetDataFromServer.bind(this)}
+                        isOnUpload={this.onTryToUpload.bind(this)}
+                      />{" "}
                     </label>
                   </div>
 
