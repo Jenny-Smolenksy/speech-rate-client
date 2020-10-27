@@ -165,8 +165,6 @@ class Home extends Component {
                             {this.state.dataResponse}
                           </label>
                           <br />
-                          Average speech rate measured: {"  "}
-                          <label className="p2">15 SPS</label>
                         </label>
                       ) : null}
                       {/* 

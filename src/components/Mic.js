@@ -94,6 +94,7 @@ export class Mic extends Component {
             strokeColor="#D3D5D8"
             backgroundColor="#17325B"
             mimeType="audio/wav"
+            sampleRate={16000}
           />
         </div>
         <div style={{ textAlign: "left" }}>
