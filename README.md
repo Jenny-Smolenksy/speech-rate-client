@@ -22,7 +22,7 @@ Writen by Jenny Smolensky and Almog Gueta, as part of ML speech measure project.
 
 **********************************************************************************************
 
-you can also use: https://speech-rate.firebaseapp.com/ to see the project. 
+you can also go to: https://speech-rate.firebaseapp.com/ to see the project. 
 
 **********************************************************************************************
 
