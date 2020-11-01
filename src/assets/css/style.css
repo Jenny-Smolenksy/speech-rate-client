@@ -421,6 +421,8 @@ ul.btn li:last-child {
      align-content: center;
      align-items: center;
      position: relative;
+      
+     padding-top: 80px;
 }
 .banner_main::before {
      position: absolute;
@@ -456,7 +458,7 @@ ul.btn li:last-child {
      max-width: inherit;
      border: inherit;
      color: #929DA1;
-     padding-bottom: 45px;
+     padding-bottom: 45px;    
 }
 
 .text-bg span {
@@ -613,7 +615,8 @@ ul.btn li:last-child {
      text-align: right;
      padding: 20px 10px 20px 10px;
      border: #48ca95 solid 1px;
-     border-radius: 15px;
+     border-radius: 15px;     
+     height: 500px;
      
 }
 
@@ -1082,7 +1085,7 @@ ul.social_icon li a:hover {
 
 .about_short {
      /* background-color: #fff; */
-     padding: 0px 0;
+     padding-top: 50px;
 }
 .about_short .titlepage {
      text-align: left;
@@ -1166,3 +1169,26 @@ ul.social_icon li a:hover {
        height: 30px;
        width: 30px;
   }
+
+  .box_text a{
+     font-size: 17px;
+     transition: ease-in all 0.5s;
+     background-color: #48ca95;
+     color: #fff;
+     padding: 10px 0px;
+     max-width: 120px;
+     border-radius: 8px;
+     width: 100%;
+     font-weight: 500;
+     text-transform: uppercase;
+     text-align: center;
+     height: 40px;
+     
+     display: inline-block;   
+ }
+
+.box_text a:hover {
+     background-color: #000;
+     transition: ease-in all 0.5s;
+     color: #fff;
+}
