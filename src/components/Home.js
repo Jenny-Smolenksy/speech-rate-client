@@ -24,9 +24,15 @@ class Home extends Component {
     this.setState({ isTryToUpload: true });
   }
 
+  onGetBadResponse() {
+    //done upload -> no need the "uploading...
+    this.setState({ isTryToUpload: false });
+    this.setState({ isDataResponse: false });
+  }
+
   onGetDataFromServer(data) {
-    this.setState({ isDataResponse: true });
     this.setState({ dataResponse: data });
+    this.setState({ isDataResponse: true });
     //done upload -> no need the "uploading...
     this.setState({ isTryToUpload: false });
   }
@@ -61,15 +67,23 @@ class Home extends Component {
         // alert("Upload Started!");
         this.onTryToUpload();
 
-        // data.append("filename", this.fileName.value);
-
         fetch("http://localhost:8000/upload", {
           method: "POST",
           body: data,
         }).then((response) => {
-          // response.json().then((body) => {
-          //   this.setState({ imageURL: `http://localhost:8000/${body.file}` });
-          response.json().then((data) => this.onGetDataFromServer(data));
+          response.json().then((data) => {
+            console.log(data);
+            var response_message = data["Message"];
+            if (response_message == "Succeeded") {
+              var response_result = data["Result"];
+              this.onGetDataFromServer(response_result);
+            } else {
+              //if it failed to upload and run model on this file - alert the message
+              this.onGetBadResponse();
+              var reason = data["Failure"];
+              alert(reason);
+            }
+          });
         });
       } catch (error) {
         this.setState({ isServerUp: false });
@@ -117,6 +131,7 @@ class Home extends Component {
                             style={({ fontSize: "24px" }, { color: "#16ABF6" })}
                           ></i>
                           <input
+                            accept=".wav,.flac,.webm"
                             ref={(ref) => {
                               this.uploadInput = ref;
                             }}
@@ -146,6 +161,7 @@ class Home extends Component {
                       <Mic
                         isResponse={this.onGetDataFromServer.bind(this)}
                         isOnUpload={this.onTryToUpload.bind(this)}
+                        isGetBadResponse={this.onGetBadResponse.bind(this)}
                       />{" "}
                     </label>
                   </div>
@@ -165,8 +181,6 @@ class Home extends Component {
                             {this.state.dataResponse}
                           </label>
                           <br />
-                          Average speech rate measured: {"  "}
-                          <label className="p2">15 SPS</label>
                         </label>
                       ) : null}
                       {/* 

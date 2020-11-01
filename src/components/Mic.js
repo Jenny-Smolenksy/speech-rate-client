@@ -44,7 +44,8 @@ export class Mic extends Component {
 
   onUpload = () => {
     var form = new FormData();
-    form.append("file", this.state.recBlob, "test_record_blob.wav");
+
+    form.append("file", this.state.recBlob, "recorded2.webm");
     form.append("title", "title_test");
 
     // alert("Upload Started!");
@@ -62,14 +63,17 @@ export class Mic extends Component {
           method: "POST",
           body: form,
         }).then((response) => {
-          // response.json().then((body) => {
-          //   this.setState({ imageURL: `http://localhost:8000/${body.file}` });
-          // response.json().then((data) => console.log(data));
           response.json().then((data) => {
-            // this.setState({ dataRes: data });
-            // this.setState({ isDataResponse: true });
-            this.props.isResponse(data);
-            console.log(data);
+            var response_message = data["Message"];
+            if (response_message == "Succeeded") {
+              var response_result = data["Result"];
+              this.props.isResponse(response_result);
+            } else {
+              //if it failed to upload and run model on this file - alert the message
+              this.props.isGetBadResponse();
+              var reason = data["Failure"];
+              alert(reason);
+            }
           });
         });
         // return alert("connection succeded!");
@@ -94,6 +98,7 @@ export class Mic extends Component {
             strokeColor="#D3D5D8"
             backgroundColor="#17325B"
             mimeType="audio/wav"
+            sampleRate={16000}
           />
         </div>
         <div style={{ textAlign: "left" }}>
