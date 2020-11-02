@@ -1,29 +1,37 @@
-This App is a client side web-application which is a part of ML project to measure Speech Rate. 
-**********************************************************************************************
+### Seech Rate Measure Application
 
-This App was writen in react, to run in you mush download and run:
+This is part of speech rate measure project.
+This App is a client side web-application which is a part of ML project to measure Speech Rate. 
+
+## Firebase deploy
+you can also go to: https://speech-rate.firebaseapp.com/ to see the project. 
+
+## Installation instructions
 
 ```
-npm install
-npm start
+  git clone https://github.com/Jenny-Smolenksy/speech-rate-client.git
+  npm install
+  npm start
 ```
 
 or
 ```
-yarn install
-yarn run
+  git clone https://github.com/Jenny-Smolenksy/speech-rate-client.git
+  yarn install
+  yarn run
 ```
-**********************************************************************************************
+
+## Server
+
+In order to get meassured speech rate you should get speech measure server.
+
+## Warning
 Recording won't work using - Apple OS and Chrome, 
 if using Apple please use other web-browser.
 
-**********************************************************************************************
-Writen by Jenny Smolensky and Almog Gueta, as part of ML speech measure project.
 
-**********************************************************************************************
+## Authors
 
-you can also go to: https://speech-rate.firebaseapp.com/ to see the project. 
+**Almog Gueta** ,  **Jenny Smolensky** 
 
-**********************************************************************************************
 
-In order to get meassured speech rate you should get server side to work on localhost.
