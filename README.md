@@ -10,6 +10,7 @@ you can also go to: https://speech-rate.firebaseapp.com/ to see the project.
 
 ```
   git clone https://github.com/Jenny-Smolenksy/speech-rate-client.git
+  cd speech-rate-client
   npm install
   npm start
 ```
@@ -17,6 +18,7 @@ you can also go to: https://speech-rate.firebaseapp.com/ to see the project.
 or
 ```
   git clone https://github.com/Jenny-Smolenksy/speech-rate-client.git
+  cd speech-rate-client
   yarn install
   yarn run
 ```
