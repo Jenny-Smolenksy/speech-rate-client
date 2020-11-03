@@ -8,12 +8,13 @@ you can also go to: https://speech-rate.firebaseapp.com/ to see the project.
 
 ## Desktop app
 you can also download and install windows installer for desktop applicaction :
-https://github.com/Jenny-Smolensky/speech-rate-client/tree/main/desktop_installer/SpeechRateAppInstaller.exe
+[here]
+(https://github.com/Jenny-Smolensky/speech-rate-client/tree/main/desktop_installer/SpeechRateAppInstaller.exe)
 
 ## Installation instructions
 
 ```
-  git clone https://github.com/Jenny-Smolenksy/speech-rate-client.git
+  git clone https://github.com/Jenny-Smolensky/speech-rate-client.git
   cd speech-rate-client
   npm install
   npm start
@@ -21,7 +22,7 @@ https://github.com/Jenny-Smolensky/speech-rate-client/tree/main/desktop_installe
 
 or
 ```
-  git clone https://github.com/Jenny-Smolenksy/speech-rate-client.git
+  git clone https://github.com/Jenny-Smolensky/speech-rate-client.git
   cd speech-rate-client
   yarn install
   yarn run
