@@ -8,8 +8,7 @@ you can also go to: https://speech-rate.firebaseapp.com/ to see the project.
 
 ## Desktop app
 you can also download and install windows installer for desktop applicaction :
-[here]
-(https://github.com/Jenny-Smolensky/speech-rate-client/tree/main/desktop_installer/SpeechRateAppInstaller.exe)
+[here](https://github.com/Jenny-Smolensky/speech-rate-client/tree/main/desktop_installer/SpeechRateAppInstaller.exe)
 
 ## Installation instructions
 
